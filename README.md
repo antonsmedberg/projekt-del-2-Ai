@@ -1,11 +1,14 @@
+
 # **YOLOv5 med COCO-dataset för Objektigenkänning**
+
+---
 
 ## **Projektbeskrivning**
 Det här projektet implementerar en avancerad träningspipeline för objektigenkänning med hjälp av YOLOv5-modellen och COCO-datasetet. Målet är att skapa en robust och effektiv lösning för realtidsobjektigenkänning som kan identifiera och klassificera objekt i bilder med hög precision och snabbhet.
 
 Projektet utvecklades från en ursprunglig plan att använda enklare dataset och modeller som MobileNet och CIFAR-10. Under arbetets gång insåg jag att en mer avancerad metod skulle ge mig större lärandemöjligheter och en djupare förståelse för datorseende och träningspipelines.
 
-Jag har utformat projektet för att uppfylla kraven för VG-nivån genom att:
+**Projektet möter följande mål:**
 - Skriva väldokumenterad och lättläst kod.
 - Motivera val av modeller och dataset.
 - Implementera effektiv Pythonkod med robust felhantering.
@@ -14,6 +17,7 @@ Jag har utformat projektet för att uppfylla kraven för VG-nivån genom att:
 ---
 
 ## **Motivering av val**
+
 ### **Val av algoritm: YOLOv5**
 YOLOv5 valdes eftersom det erbjuder en optimal balans mellan snabbhet och noggrannhet, vilket gör den idealisk för realtidsapplikationer. Med dess modulära design och omfattande dokumentation var YOLOv5 det bästa valet för att implementera en robust träningspipeline och lära mig hur avancerade modeller fungerar.
 
@@ -34,7 +38,6 @@ Projektet syftar till att:
 ---
 
 ## **Projektstruktur**
-Projektet består av följande huvudkomponenter:
 
 ### **1. Datasetförberedelser**
 - Automatisk nedladdning och packning av COCO128, en mindre version av COCO.
@@ -59,23 +62,32 @@ Projektet består av följande huvudkomponenter:
 
 ---
 
-## **Kodkvalitet och felhantering**
+## **Kod och Implementering**
+
+Projektets implementation finns i en Jupyter Notebook-fil som innehåller all kod för datasetförberedelser, träningspipeline, testning och export. Du kan komma åt notebooken direkt via länken nedan:
+
+- 📂 **[ITHS_Projekt_AntonSme.ipynb](https://github.com/antonsmedberg/projekt-del-2-Ai/blob/main/ITHS_Projekt_AntonSme.ipynb)**
+
+### **Notebook-innehåll**
+1. **Initialisering och beroenden**: Installation av YOLOv5 och nödvändiga bibliotek.
+2. **Datasetförberedelser**: Automatisk nedladdning och verifiering av COCO128.
+3. **Modellträning**: Implementering av träningsloop och loggning av resultat.
+4. **Testning och visualisering**: Visualisering av prediktioner och sparande av annoterade bilder.
+5. **Export till ONNX**: Export av den tränade modellen för vidare användning.
+
+---
+
+## **Kodkvalitet och Felhantering**
+
 Projektet fokuserar på att upprätthålla hög kodkvalitet genom:
 - **Modularisering**: Funktioner och moduler är tydligt definierade för bättre läsbarhet och underhåll.
 - **Felhantering**: Kritiska delar av pipeline, som datasetvalidering och parameterkontroll, inkluderar robusta felhanteringsmekanismer.
 - **Effektivitet**: Pipeline använder GPU-acceleration där det är möjligt för att maximera prestandan.
 
-### **Exempel på felhantering**
-```python
-def validate_settings(settings):
-    if settings["batch_size"] <= 0 or settings["img_size"] <= 0:
-        raise ValueError("Batchstorlek och bildstorlek måste vara positiva heltal.")
-    logging.info("✅ Träningsparametrar validerade.")
-```
-
 ---
 
-## **Analys och förbättringsmöjligheter**
+## **Analys och Förbättringsmöjligheter**
+
 ### **Vad jag har lärt mig**
 - Hur YOLOv5:s arkitektur fungerar och kan anpassas för olika dataset.
 - Vikten av datavalidering och robust felhantering för att förbättra stabiliteten i en träningspipeline.
@@ -88,18 +100,22 @@ def validate_settings(settings):
 
 ---
 
-## **Resultat och reflektion**
+## **Resultat och Reflektion**
+
 ### **Resultat**
 - Modellen uppnådde en genomsnittlig precision (mAP50) på 78% på COCO128, vilket är konkurrenskraftigt för datasetets storlek.
 - Annoterade resultat sparades och analyserades framgångsrikt.
 - Modellen exporterades till ONNX-format utan problem.
 
 ### **Reflektion**
-Det här projektet har gett mig en djupare förståelse för avancerade datorseendetekniker och hur man bygger robusta och skalbara AI-lösningar. Genom att ta mig an detta mer komplexa projekt än vad jag ursprungligen planerat, har jag utvecklat både min tekniska kompetens och mitt förmåga att lösa problem.
+Projektet har gett mig en djupare förståelse för avancerade datorseendetekniker och hur man bygger robusta och skalbara AI-lösningar. Jag ser fram emot att vidareutveckla projektet med mer avancerade tekniker och dataset.
 
 ---
 
-## **Framtida arbete**
+## **Framtida Arbete**
 1. **Generaliseringsförbättring**: Utöka datasetet och träna modellen på fler kategorier och större datamängder.
 2. **Produktion**: Implementera stöd för TensorRT för att förbättra prestandan i produktionsmiljöer.
 3. **Semi-supervised learning**: Utforska oannoterade data för att förbättra träningsprocessen och minska behovet av omfattande annotering.
+
+---
+
